@@ -2,16 +2,15 @@ const​ ​scriptName​ ​=​ ​"Attendance"​;
 
 //Made by Masimellomi
 //이 소스는 GPL 3.0 라이센스를 사용합니다. 무단 복제 및 2차 유포를 금합니다.
-//아래 소스는 파일 스트림을 기반으로 사용합니다. 1달 경과시 파일이 많이 생성되기에 폴더를 찾아 1달에 한번씩 지우는걸 추천합니다.
+//아래 소스는 파일 스트림을 기반으로 사용합니다. 1달 경과시 파일이 많이 생성되기에 폴더를 찾아 1달에 한번씩 지우는걸 추천합니다. ( 파일 자체 용량은 적음 )
 //이 소스는 메신저봇R에서 정상작동합니다. 채팅 자동 응답봇은 테스트 하지 않았습니다.
 //위 안내문을 삭제하지 마세요. 
-//해당 코드는 수정되기 전 코드일 수 있습니다. 오류 발생시 Issues로 오류를 말해주시길 바랍니다.
-
+//주의! 해당 코드는 실제 개발자가 사용하는 코드와 다릅니다. 오류 발생시 Issues로 오류를 말해주시길 바랍니다.
 const Lw = '​'.repeat(500); 
 function​ ​response​(​room​,​ ​msg​,​ ​sender​,​ ​isGroupChat​,​ ​replier​,​ ​imageDB​,​ ​packageName​)​ ​{ 
   const Mybotname​ ​=​ ​"마시멜로봇"​; ​//본인 봇 이름입니다. 데이터 저장시 본인 봇 이름으로 처리됩니다.
-  const giftgive = true; // 소정의 선물 증정 여부 아닐시 false
-  const giftmessage = ""; //소정의 상품 증정시 메시지 출력, 항상 비워두세요. 메시지 수정을 원할 시 26Lines로 이동.
+  const giftmessage = "\n이 메시지와 1등 연속 출석을 인증할 수 있는 메시지를\n " + Email + "으로 보내주세요!\n확인 여부를 통해 개발자님께서 소정의 상품을 지급합니다!";
+  //소정의 상품 증정시 메시지 출력, 상품 증정을 원하지 않을 시 비워두세요. 메시지 수정을 원할 시 14Lines로 이동.
   const d = new Date ​(​)​; 
   var NowTime1 = d.getFullYear() + '년 ' + (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + d.getHours() + '시 ' + d.getMinutes() + '분 ';
   var NowTi1me = d.getFullYear() + '년 ' + (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + d.getHours() + '시 ' + d.getMinutes() + '분 ' + d.getSeconds() + '초 ';
@@ -21,10 +20,6 @@ function​ ​response​(​room​,​ ​msg​,​ ​sender​,​ ​isGr
   const Email = "routu7017@naver.com";
     
  //메인소스 ( 코딩 및 자바스크립트 관련 경험 및 숙련도가 없으시면 건들지 마세요.
-  if(giftgive == true){
-  const giftmessage = "으로 보내주세요!\n확인 여부를 통해 개발자님께서 소정의 상품을 지급합니다!"
-  }else if(giftgive = false){
-  }
   if(​msg​ ​==​ ​prefix​ ​+​ ​"출석"​ ​||​ ​msg​ ​==​ ​prefix​ ​+​ ​"ㅊㅊ"​)​ ​{ 
  ​    ​var​ ​sendercheck​ ​=​ ​FS​.​read​(​"/sdcard/출석 유저/"​ ​+​ ​room​ ​+​"/"​ ​+​ ​NowTime​ ​+​ ​sender​ ​+​".txt"​)​; 
   
@@ -50,7 +45,7 @@ function​ ​response​(​room​,​ ​msg​,​ ​sender​,​ ​isGr
               replier.reply(NowTime + "일자 전체 순위 1등! 축하드립니다. 🥇🥇");
               FS.remove("/sdcard/마시멜로봇의 출석체크/연속1등출석자" + sender + ".txt");
               FS.remove("/sdcard/마시멜로봇의 출석/연속1등출석자1" + sender + ".txt");
-              replier.reply("1주일 연속으로 전체 1위를 달성하셨어요! 축하드려요!" +  "\n이 메시지와 1등 연속 출석을 인증할 수 있는 메시지를\n " + Email + giftmessage);
+              replier.reply("1주일 연속으로 전체 1위를 달성하셨어요! 축하드려요!"  + giftmessage);
                 }else if(FS.read("/sdcard/마시멜로봇의 출석/"​ ​+​ ​NowTime​ ​+​ ​"일자 전체순위.txt")=="1");
                   FS.append("/sdcard/마시멜로봇의 출석/연속1등출석자1" + sender + ".txt","✅ ");
                     var memo = "출";
