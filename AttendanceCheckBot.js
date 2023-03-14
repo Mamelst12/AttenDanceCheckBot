@@ -8,7 +8,7 @@ const Lw = '​'.repeat(500);
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
   // 사용자 명령어 수정
   const prefix = "!";  //접두사, 즉 앞에 붙는 기호입니다. 필요 없으시면 ""로 처리하셔도 됩니다. 
-  const email = "routu7017@naver.com"; //이메일입니다! 메시지 수정은 바로 밑이에요 :)
+  const email = "본인 이메일"; //이메일입니다! 메시지 수정은 바로 밑이에요 :)
   const giftmessage = " \n이 메시지와 1등 연속 출석을 인증할 수 있는 메시지를\n" + email + " 으로 보내주세요!\n확인 여부를 통해 개발자님께서 소정의 상품을 지급합니다!"; // 메시지 수정, 필요 없을시 공백.
   const mybotname = "마시멜로봇";  //본인 봇 이름입니다. 데이터 저장시 본인 봇 이름으로 처리됩니다. 
   // 사용자 명령어 수정
