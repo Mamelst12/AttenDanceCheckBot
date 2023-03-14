@@ -58,7 +58,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         FS.remove("/sdcard/ " + mybotname + "의 출석체크/연속1등출석자1" + sender + ".txt");
         FS.remove("/sdcard/ " + mybotname + "의 출석/연속1등출석자" + sender + ".txt");
       }
-    } else if (msg == prefix + "출석" || msg == prefix + "ㅊㅊ") {
+    } else if (msg == prefix + "출석" || msg == prefix + "ㅊㅊ" || msg == prefix + "출첵" || prefix + "출석체크") {
       replier.reply("오늘 이미 하신거 같습니다만?");
     }
   }
