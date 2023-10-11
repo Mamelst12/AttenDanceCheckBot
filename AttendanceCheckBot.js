@@ -35,7 +35,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           replier.reply(Nowtimeday + "일자 전체 순위 1등! 축하드립니다. 🥇🥇");
           FS.remove("/sdcard/ " + mybotname + "의 출석체크/연속1등출석자" + sender + ".txt");
           FS.remove("/sdcard/ " + mybotname + "의 출석/연속1등출석자1" + sender + ".txt");
-          replier.reply("1주일 연속으로 전체 1위를 달성하셨어요! 축하드려요! \n이 메시지와 1등 연속 출석을 인증할 수 있는 메시지를\n" + email + "으로 보내주세요!\n" + giftmessage);
+          replier.reply("1주일 연속으로 전체 1위를 달성하셨어요! 축하드려요!\n" + giftmessage);
         } else if (FS.read("/sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 전체순위.txt") == "1") {
           FS.append("/sdcard/ " + mybotname + "의 출석/연속1등출석자1" + sender + ".txt", "✅ ");
           const memo = "출";
