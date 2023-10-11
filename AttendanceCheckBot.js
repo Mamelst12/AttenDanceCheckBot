@@ -20,6 +20,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
   if (msg == prefix + "출석" || msg == prefix + "ㅊㅊ" || msg == "!출첵") {
     const sendercheck = FS.read("/sdcard/ " + mybotname + "의 출석/출석 유저/" + room + "/" + Nowtimeday + sender + ".txt");
     if (sendercheck == null) {
+      //만일 출석체크가 되지 않았을 경우, 아래의 코드 작성
       FS.append("sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 출석목록", "\n\n𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒆.\n𝑺𝒆𝒏𝒅𝒆𝒓 : " + sender + "\n𝑹𝒐𝒐𝒎 : " + room + "\n𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑻𝒊𝒎𝒆 : " + Nowtimedaysec + "\n______________________________________\n\n");
       FS.append("sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 출석목록 " + room, "\n\n𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒆.\n𝑺𝒆𝒏𝒅𝒆𝒓 : " + sender + "\n𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑻𝒊𝒎𝒆 : " + Nowtimedaysec + "\n______________________________________\n\n");
       FS.append("/sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 전체순위.txt", "1");
@@ -28,6 +29,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const read2 = FS.read("/sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 전체순위.txt").length;
       FS.write("/sdcard/ " + mybotname + "의 출석/출석 유저/" + room + "/" + Nowtimeday + sender + ".txt", "𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒆.\n𝑺𝒆𝒏𝒅𝒆𝒓 : " + sender + "\n𝑹𝒐𝒐𝒎 : " + room + "\n𝑨𝒕𝒕𝒆𝒏𝒅𝒂𝒏𝒄𝒆 𝑻𝒊𝒎𝒆 : " + Nowtimedaysec + "\n______________________________________\n\n");
       FS.write("/sdcard/ " + mybotname + "의 출석/출석 유저/" + room + "/" + Nowtimeday + sender + " checktime.txt", Nowtimedaysec);
+      //만일 출석체크를 했지만, 순위권에 들었을 경우
       if (FS.read("/sdcard/ " + mybotname + "의 출석/" + Nowtimeday + "일자 전체순위.txt") == "1") {
         const Attendance3 = FS.read("/sdcard/ " + mybotname + "의 출석/연속1등출석자1" + sender + ".txt");
         if (FS.read("/sdcard/ " + mybotname + "의 출석체크/연속1등출석자" + sender + ".txt") == "출출출출출출") {
